@@ -1,13 +1,21 @@
 {
   "name": "commit-message-formatter",
-  "displayName": "CommitMessageFormatter",
+  "displayName": "Commit Message Formatter",
   "description": "",
   "version": "0.0.1",
+  "preview": true,
+  "publisher": "adam-bender",
+  "license": "MIT",
   "engines": {
     "vscode": "^1.77.0"
   },
   "categories": [
-    "Other"
+    "Formatters"
+  ],
+  "keywords": [
+    "git",
+    "vcs",
+    "commit"
   ],
   "activationEvents": [],
   "main": "./out/extension.js",
