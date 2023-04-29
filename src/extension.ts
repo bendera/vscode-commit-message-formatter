@@ -21,9 +21,7 @@ export function activate(context: vscode.ExtensionContext) {
         firstLine.range.start,
         lastLine.range.end
       );
-      return [vscode.TextEdit.replace(textRange, "aaaa")];
-
-      return [];
+      return [vscode.TextEdit.replace(textRange, "asfkjashflkjahlfkjshl")];
     },
   });
 }
