@@ -4,3 +4,6 @@
 !.vscode/tasks.json
 
 out/
+
+
+node_modules/
