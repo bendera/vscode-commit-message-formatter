@@ -25,7 +25,10 @@
   "contributes": {
     "languages": [
       {
-        "id": "git-commit"
+        "id": "git-commit",
+        "filenames": [
+          "COMMIT_EDITMSG"
+        ]
       }
     ],
     "configuration": {
