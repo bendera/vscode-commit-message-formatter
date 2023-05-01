@@ -26,6 +26,9 @@
     "languages": [
       {
         "id": "git-commit",
+        "extensions": [
+          "COMMIT_EDITMSG"
+        ],
         "filenames": [
           "COMMIT_EDITMSG"
         ]
