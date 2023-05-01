@@ -44,6 +44,17 @@
         "commit-message-formatter.collapseMultipleEmptyLines": {
           "type": "boolean",
           "default": false
+        },
+        "commit-message-formatter.protectedPatterns": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "#",
+            "Signed-off-by:",
+            "Co-authored-by:"
+          ]
         }
       }
     }
