@@ -1,71 +1,63 @@
-# commit-message-formatter README
+# Commit Message Formatter
 
-This is the README for your extension "commit-message-formatter". After writing up a brief description, we recommend including the following sections.
+Wrap long lines in commit messages.
 
-## Features
+## Prerequisites
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+Before first use, setup GIT to use VSCode as the default editor:
 
-For example if there is an image subfolder under your extension project workspace:
+```bash
+git config --global core.editor "code --wait"
+```
 
-\!\[feature X\]\(images/feature-x.png\)
+After installation it can be executed from the context menu with the
+`Format document` command.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+## Example
 
-## Requirements
+### Before
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+```
+Ut vehicula eleifend massa, vitae interdum turpis maximus sit amet. Cras at nunc odio.
 
-## Extension Settings
+Pellentesque accumsan elit id convallis vulputate. Cras sapien felis, tincidunt finibus leo at, pharetra congue arcu.
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+  * Praesent dignissim odio non interdum cursus. Proin lorem mauris, feugiat et risus eu, sodales lacinia libero.
+  * Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  * Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum non erat ac neque commodo convallis.
 
-For example:
+Praesent sed pellentesque quam. Vivamus et orci ut augue rutrum efficitur a in mi. Etiam sodales purus ac lectus interdum, nec dictum elit aliquet.
+```
 
-This extension contributes the following settings:
+### After
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+```bash
+# Subject line length (git.inputValidationSubjectLength)
+# -----------------------------------------------|
+#
+# Input validation length (git.inputValidationLength)
+# ---------------------------------------------------------------------|
 
-## Known Issues
+Ut vehicula eleifend massa, vitae interdum turpis
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+maximus sit amet. Cras at nunc odio.
 
-## Release Notes
 
-Users appreciate release notes as you update your extension.
+Pellentesque accumsan elit id convallis vulputate. Cras sapien felis,
+tincidunt finibus leo at, pharetra congue arcu.
 
-### 1.0.0
+  * Praesent dignissim odio non interdum cursus. Proin lorem mauris,
+    feugiat et risus eu, sodales lacinia libero.
+  * Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  * Class aptent taciti sociosqu ad litora torquent per conubia nostra,
+    per inceptos himenaeos. Vestibulum non erat ac neque commodo
+    convallis.
 
-Initial release of ...
+Praesent sed pellentesque quam. Vivamus et orci ut augue rutrum
+efficitur a in mi. Etiam sodales purus ac lectus interdum, nec dictum
+elit aliquet.
+```
 
-### 1.0.1
+## Options
 
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+TODO
