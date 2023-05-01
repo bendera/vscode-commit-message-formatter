@@ -17,6 +17,9 @@
     "vcs",
     "commit"
   ],
+  "repository": {
+    "url": "https://github.com/bendera/vscode-commit-message-formatter"
+  },
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
@@ -24,7 +27,26 @@
       {
         "id": "git-commit"
       }
-    ]
+    ],
+    "configuration": {
+      "title": "Commit Message Formatter",
+      "properties": {
+        "commit-message-formatter.subjectMode": {
+          "type": "string",
+          "enum": [
+            "truncate",
+            "truncate-ellipses",
+            "split",
+            "split-ellipses"
+          ],
+          "default": "truncate"
+        },
+        "commit-message-formatter.collapseMultipleEmptyLines": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
