@@ -5,6 +5,7 @@ import CommitMessageFormatter, {
   CommitMessageFormatterOptions,
   SubjectFormattingMode,
 } from "@bendera/commit-message-formatter";
+import Logger from "./Logger";
 
 function getConfiguration(): CommitMessageFormatterOptions {
   const globalEditorSettings = vscode.workspace.getConfiguration("editor");
@@ -56,6 +57,10 @@ function getConfiguration(): CommitMessageFormatterOptions {
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
+  const logger = new Logger();
+
+  logger.log("Extension has been activated.");
+
   vscode.languages.registerDocumentFormattingEditProvider("git-commit", {
     provideDocumentFormattingEdits(
       document: vscode.TextDocument
@@ -69,6 +74,14 @@ export function activate(context: vscode.ExtensionContext) {
 
       const config = getConfiguration();
       const formatter = new CommitMessageFormatter(config);
+
+      logger.log(
+        `Formatted commit message with the following settings:\n${JSON.stringify(
+          config,
+          undefined,
+          2
+        )}`
+      );
 
       return [
         vscode.TextEdit.replace(
