@@ -2,7 +2,7 @@
   "name": "commit-message-formatter",
   "displayName": "Commit Message Formatter",
   "description": "Break long lines in commit messages.",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "preview": false,
   "publisher": "adam-bender",
   "license": "MIT",
