@@ -1,9 +1,9 @@
 {
   "name": "commit-message-formatter",
   "displayName": "Commit Message Formatter",
-  "description": "",
+  "description": "Break long lines in commit messages.",
   "version": "0.2.1",
-  "preview": true,
+  "preview": false,
   "publisher": "adam-bender",
   "license": "MIT",
   "engines": {
@@ -45,11 +45,19 @@
             "split",
             "split-ellipses"
           ],
-          "default": "truncate"
+          "markdownEnumDescriptions": [
+            "Truncate the subject at the limit, moving the rest to the message body. Example:\n\n`Lorem Ip`\n\n`sum`",
+            "Truncate the subject at the limit, moving the rest to the message body. Add a three-dots suffix to the subject, and a three-dots prefix to the body. Example:\n\n`Lorem Ip...`\n\n`...sum`",
+            "Split the subject at the last space character before the limit, moving the rest to the message body. Example:\n\n`Lorem`\n\n`Ipsum`",
+            "Split the subject at the last space character before the limit, moving the rest to the message body. Add a three-dots suffix to the subject, and a three-dots prefix to the body. Example:\n\n`Lorem...`\n\n`...Ipsum`"
+          ],
+          "default": "truncate",
+          "markdownDescription": "How to handle the subject line if it is longer than the allowed length. Subject length can be set in `#git.inputValidationSubjectLength#`."
         },
         "commit-message-formatter.collapseMultipleEmptyLines": {
           "type": "boolean",
-          "default": false
+          "default": false,
+          "description": "Collapse multiple blank lines to single one."
         },
         "commit-message-formatter.protectedPatterns": {
           "type": "array",
@@ -60,7 +68,8 @@
             "#",
             "Signed-off-by:",
             "Co-authored-by:"
-          ]
+          ],
+          "description": "Keep the line untouched, which begins with one of these patterns."
         }
       }
     }
