@@ -1,6 +1,14 @@
 # Commit Message Formatter
 
-Wrap long lines in commit messages.
+Based on the best practices a good commit message looks like this:
+
+- The first line is the subject of the commit message. It should be limited to 
+  50 characters and should be separated from the body with a blank line.
+- The message body should be wrapped at 72 characters.
+
+The Commit Message Formatter wraps the commit message following these rules. 
+It does not just break the long lines, but it can reformat the whole text after a modification.
+It can also handle lists and indentations.
 
 ## Prerequisites
 
@@ -41,7 +49,6 @@ Praesent sed pellentesque quam. Vivamus et orci ut augue rutrum efficitur a in m
 Ut vehicula eleifend massa, vitae interdum turpis
 
 maximus sit amet. Cras at nunc odio.
-
 
 Pellentesque accumsan elit id convallis vulputate. Cras sapien felis,
 tincidunt finibus leo at, pharetra congue arcu.
