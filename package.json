@@ -15,7 +15,8 @@
   "keywords": [
     "git",
     "vcs",
-    "commit"
+    "commit",
+    "prettier"
   ],
   "repository": {
     "url": "https://github.com/bendera/vscode-commit-message-formatter"
