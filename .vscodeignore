@@ -1,6 +1,7 @@
 **/*
 !node_modules/@bendera/commit-message-formatter
 !out/extension.js
+!out/Logger.js
 !icon.png
 !LICENSE
 !CHANGELOG.md
