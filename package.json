@@ -21,7 +21,9 @@
   "repository": {
     "url": "https://github.com/bendera/vscode-commit-message-formatter"
   },
-  "activationEvents": [],
+  "activationEvents": [
+    "onLanguage:git-commit"
+  ],
   "main": "./out/extension.js",
   "contributes": {
     "languages": [
