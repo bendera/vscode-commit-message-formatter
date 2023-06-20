@@ -1,14 +1,7 @@
 # Commit Message Formatter
 
-Based on the best practices a good commit message looks like this:
-
-- The first line is the subject of the commit message. It should be limited to 
-  50 characters and should be separated from the body with a blank line.
-- The message body should be wrapped at 72 characters.
-
-The Commit Message Formatter wraps the commit message following these rules. 
-It does not just break the long lines, but it can reformat the whole text after a modification.
-It can also handle lists and indentations.
+Breaks long lines in commit messages according to the [50/72 rule](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html).
+It can handle bullet points even if those are not separated by empty lines.
 
 ## Prerequisites
 
@@ -23,7 +16,7 @@ After installation it can be executed from the context menu with the
 
 ## Example
 
-### Before
+From this unformatted message:
 
 ```
 Ut vehicula eleifend massa, vitae interdum turpis maximus sit amet. Cras at nunc odio.
@@ -37,14 +30,9 @@ Pellentesque accumsan elit id convallis vulputate. Cras sapien felis, tincidunt 
 Praesent sed pellentesque quam. Vivamus et orci ut augue rutrum efficitur a in mi. Etiam sodales purus ac lectus interdum, nec dictum elit aliquet.
 ```
 
-### After
+become this:
 
 ```bash
-# Subject line length (git.inputValidationSubjectLength)
-# -----------------------------------------------|
-#
-# Input validation length (git.inputValidationLength)
-# ---------------------------------------------------------------------|
 
 Ut vehicula eleifend massa, vitae interdum turpis
 
@@ -67,4 +55,11 @@ elit aliquet.
 
 ## Options
 
-TODO
+The extension uses the `git.inputValidationSubjectLength` and the `git.inputValidationLength` 
+options to define the maximum number of characters of the lines and the subject.
+
+Other options are:
+
+* `commit-message-formatter.subjectMode` - How to handle the subject line if it is longer than the allowed length.
+* `commit-message-formatter.collapseMultipleEmptyLines` - Collapse multiple blank lines to single one.
+* `commit-message-formatter.protectedPatterns` - Keep the line untouched, which begins with one of these patterns.
