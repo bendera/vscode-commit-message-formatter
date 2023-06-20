@@ -7,13 +7,10 @@ import CommitMessageFormatter, {
 } from "@bendera/commit-message-formatter";
 import Logger from "./Logger";
 
-function getConfiguration(): CommitMessageFormatterOptions {
-  const globalEditorSettings = vscode.workspace.getConfiguration("editor");
-  const globalTabsize = globalEditorSettings.get("tabSize") as number;
-  const globalInsertSpaces = globalEditorSettings.get(
-    "insertSpaces"
-  ) as boolean;
-
+function getConfiguration(): Omit<
+  CommitMessageFormatterOptions,
+  "tabSize" | "indentWithTabs"
+> {
   const extensionSettings = vscode.workspace.getConfiguration(
     "commit-message-formatter"
   );
@@ -26,14 +23,6 @@ function getConfiguration(): CommitMessageFormatterOptions {
   const protectedPatterns = extensionSettings.get(
     "protectedPatterns"
   ) as string[];
-
-  const gitCommitLanguageSettings =
-    vscode.workspace.getConfiguration("[git-commit]");
-  const tabSize =
-    (gitCommitLanguageSettings.get("editor.tabSize") as number) ??
-    (globalTabsize as number);
-  const insertSpaces =
-    gitCommitLanguageSettings.get("editor.insertSpaces") ?? globalInsertSpaces;
 
   const gitConfig = vscode.workspace.getConfiguration("git");
   const inputValidationLength = gitConfig.get(
@@ -48,8 +37,6 @@ function getConfiguration(): CommitMessageFormatterOptions {
     subjectLength: inputValidationSubjectLength,
     subjectMode,
     collapseMultipleEmptyLines,
-    tabSize,
-    indentWithTabs: !insertSpaces,
     protectedPatterns,
   };
 }
@@ -63,7 +50,8 @@ export function activate(context: vscode.ExtensionContext) {
 
   vscode.languages.registerDocumentFormattingEditProvider("git-commit", {
     provideDocumentFormattingEdits(
-      document: vscode.TextDocument
+      document: vscode.TextDocument,
+      formattingOptions: vscode.FormattingOptions
     ): vscode.TextEdit[] {
       const firstLine = document.lineAt(0);
       const lastLine = document.lineAt(document.lineCount - 1);
@@ -72,7 +60,10 @@ export function activate(context: vscode.ExtensionContext) {
         lastLine.range.end
       );
 
-      const config = getConfiguration();
+      const { insertSpaces, tabSize } = formattingOptions;
+      const config: CommitMessageFormatterOptions = getConfiguration();
+      config.indentWithTabs = !insertSpaces;
+      config.tabSize = tabSize;
       const formatter = new CommitMessageFormatter(config);
 
       logger.log(
